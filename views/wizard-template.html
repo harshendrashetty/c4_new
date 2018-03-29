@@ -1,0 +1,58 @@
+﻿<div class="modal fade in wizard-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissModal()">&times;</button>
+                <h3 class="modal-title">
+                    <span ng-class="wizardSteps.icon ? wizardConfig.icon : 'glyphicon glyphicon-tasks' "></span>
+                    {{ wizardSteps.title}}
+                </h3>
+               <h4 ng-if="wizardSteps.description" class="wizard-desc"> {{ wizardSteps.description }} </h4>
+            </div>
+            <div class="modal-body">
+                <div class="clearfix wizard-body overflow-prevention">
+                    <div class="wizard-row">
+                        <div class="wizard-left-nav">
+                            <ul>
+                                <li ng-repeat="step in wizardSteps.wizards" ng-class="{selectedstep:wizard.index === $index}">
+                                    <a href="javascript:void(0)" ng-click="selectStep($index)">{{ step.header }}</a>
+                                    <span class="wizard-pointer"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="wizard-form-wrapper">
+                            <form class="form-horizontal" name="wizardForm" novalidate>
+                                <div wizard-form class="wizard-form" ng-repeat="step in wizardSteps.wizards" ng-class="{'wizard-step-show': wizard.index === $index}">
+                                    <ng-form name="{{'step' + $index}}">
+                                        <div  class="col-md-12 wiz-view" ></div>
+                                    </ng-form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="clearfix">
+                    <div class="pull-left">Step {{wizard.index + 1}} of {{wizardSteps.wizards.length}}</div>
+                    <div class="pull-right">
+                        <button class="btn btn-primary" ng-click="previous()" ng-hide="wizard.index == 0" ng-class="steps[wizard.index].buttonClass.previous">
+                            Previous
+                        </button>
+                        <button class="btn btn-primary" ng-click="next()" ng-hide="wizard.index >= wizardSteps.wizards.length - 1" ng-disabled="wizardForm['step'+wizard.index].$invalid">
+                            Next {{formsUser['step'+wizard.index].$invalid}}
+                        </button>
+                        <button class="btn btn-primary" ng-click="ok(wizardForms)" ng-hide="notGoodToFinish()" ng-disabled="wizardForm['step'+wizard.index].$invalid">
+                            Finish
+                        </button>
+                        <button class="btn btn-default" ng-click="dismissModal()" ng-class="steps[wizard.index].buttonClass.cancel">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><cp-icon icon-class="user"></cp-icon> User</h3>
+    </div>
+    <div class="panel-body">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object user-image img-circle" class="" src="/cp-core/common/resources/images/{{cpData.name}}.png" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{cpData.name}}</h4>
+                <p>{{cpData.designation}} </p>
+                <p>Last Login: {{cpData.lastLogin}} </p>
+            </div>
+        </div>
+        <p> </p>
+    </div>
+     <div class="panel-footer">
+       <a href="#" ng-click="alert('logout')"> Logout </a>
+    </div>
+</div>

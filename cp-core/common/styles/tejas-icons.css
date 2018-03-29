@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'tejas-icons';
+    src:    url('../fonts/tejas-icons.eot?fhwnc6');
+    src:    url('../fonts/tejas-icons.eot?fhwnc6#iefix') format('embedded-opentype'),
+        url('../fonts/tejas-icons.ttf?fhwnc6') format('truetype'),
+        url('../fonts/tejas-icons.woff?fhwnc6') format('woff'),
+        url('../fonts/tejas-icons.svg?fhwnc6#tejas-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="tejas-icon-"], [class*=" tejas-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'tejas-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tejas-icon-log:before {
+    content: "\e900";
+}
+.tejas-icon-add-user:before {
+    content: "\e901";
+}
+.tejas-icon-copyright:before {
+    content: "\e902";
+}
+.tejas-icon-server-stop:before {
+    content: "\e903";
+}
+.tejas-icon-server-success:before {
+    content: "\e904";
+}
+.tejas-icon-server-tweak:before {
+    content: "\e905";
+}
+.tejas-icon-update:before {
+    content: "\e906";
+}
+.tejas-icon-wizard:before {
+    content: "\e907";
+}
+.tejas-icon-admin:before {
+    content: "\e908";
+}
+.tejas-icon-profile:before {
+    content: "\e909";
+}
+.tejas-icon-server:before {
+    content: "\e90a";
+}
+.tejas-icon-server-add:before {
+    content: "\e90b";
+}
+.tejas-icon-server-delete:before {
+    content: "\e90c";
+}
+.tejas-icon-server-discover:before {
+    content: "\e90d";
+}
+.tejas-icon-server-edit:before {
+    content: "\e90e";
+}
+.tejas-icon-server-host:before {
+    content: "\e90f";
+}
+.tejas-icon-server-info:before {
+    content: "\e910";
+}
+.tejas-icon-server-pause:before {
+    content: "\e911";
+}
+.tejas-icon-server-profile:before {
+    content: "\e912";
+}
+.tejas-icon-server-rack:before {
+    content: "\e913";
+}
+.tejas-icon-server-remove:before {
+    content: "\e914";
+}
+.tejas-icon-server-repository:before {
+    content: "\e915";
+}
+.tejas-icon-server-secure:before {
+    content: "\e916";
+}
+.tejas-icon-server-settings:before {
+    content: "\e917";
+}
+.tejas-icon-server-start:before {
+    content: "\e918";
+}
+

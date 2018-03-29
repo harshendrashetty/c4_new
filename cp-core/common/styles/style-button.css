@@ -1,0 +1,645 @@
+.cibutton {
+	border-radius: 0px;
+	border-width: 0px;
+    font-size: 12px;
+    padding: 6px 24px;
+	margin-top: 10px;
+	margin-right: 10px;
+    line-height: 100%;
+    display: inline-block;
+	vertical-align: middle;
+    text-align: center;
+    cursor:pointer;
+    text-decoration:none;
+    outline:0;
+	min-width: 80px;
+}
+
+.cibutton-blue {
+    color: #FFFFFF;
+    background-color: #007DB8;
+}
+
+.cibutton-blue:hover {
+	color: #FFFFFF;
+	text-decoration:none;
+    background-color: #11609E;
+}
+
+.cibutton-blue:active {
+    background-color: #00447C;
+}
+
+.cibutton-blue:disabled{
+	background-color: #56A7CD;
+}
+
+.cibutton-default {
+    color: #007DB8;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    border-width: 1px;
+}
+
+.cibutton-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.cibutton-default:active {
+    outline: none;
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+}
+
+.cibutton-default:disabled{
+    cursor: not-allowed;
+    box-shadow: none;
+    background-color: #f4f4f4;
+    opacity: 1;
+    border: 1px solid #ccc;
+    color: #cccccc;
+}
+
+.cibutton-xs{
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.cibutton-red {
+    color: #FFFFFF;
+    background-color: #CE1126;
+}
+
+.cibutton-red:hover {
+	color: #FFFFFF;
+	text-decoration:none;
+    background-color: #9A0E1E;
+}
+
+.cibutton-red:focus {
+	color: #FFFFFF;
+	text-decoration:none;
+	background-color: #AF1123;
+}
+
+.cibutton-red:active {
+    background-color: #9A0E1E;
+}
+
+.cibutton-red:disabled {
+    background-color: #D29CA2;
+}
+
+.cibutton-gray {
+	color: #FFFFFF;
+	background-color: #888888;
+}
+
+.cibutton-gray:hover {
+	color: #FFFFFF;
+	text-decoration:none;
+    background-color: #666666;
+}
+
+.cibutton-gray:active {
+    background-color: #555555;
+}
+
+.cibutton-gray:disabled {
+	background-color: #DDDDDD;
+}
+
+.cibutton-dark-gray {
+	color: #FFFFFF;
+	background-color: #444444;
+}
+
+.cibutton-dark-gray:hover {
+	color: #FFFFFF;
+	text-decoration:none;
+    background-color: #333333;
+}
+
+.cibutton-dark-gray:active {
+    background-color: #333333;
+}
+
+.cibutton-dark-gray:disabled {
+	background-color: #DDDDDD;
+}
+
+.cibutton-light-gray {
+	color: #FFFFFF;
+	background-color: #CCCCCC;
+}
+
+.cibutton-light-gray:hover {
+    background-color: #BBBBBB;
+}
+
+.cibutton-light-gray:active {
+    background-color: #AAAAAA;
+}
+
+.cibutton-notabled {
+	color: #FFFFFF;
+	background-color: #DADADA;
+}
+
+.headingText {
+    color: #868686;
+}
+
+.pageHeading {
+	margin-left: 30px;
+	margin-top: 30px;
+}
+
+.generalContainer {
+	background-color: #F4F4F4;
+	border-top: 1px solid #DDDDDD;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.sectionHeading {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.sectionImage {
+	font-size: 75%;
+	color: #868686;
+}
+
+.mcm-header {
+    background-color: #6BACDE;
+    color: #ffffff;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 15px;
+}
+.page-body-background {
+    background-color: #f4f4f4;
+    padding:15px;
+    position: absolute;
+    width: 100%;
+}
+.page-element, .page-element-header {
+    background-color: #ffffff;
+    padding: 5px 15px 5px 15px;
+    margin-bottom: 15px;
+}
+.page-element-header {
+    margin-bottom: 2px;
+}
+.linkImage {
+    font-size: 75%;
+}
+.rightText {
+    text-align: right;
+}
+.pieChartList {
+    border-left: 1px solid #DDDDDD;
+}
+.pieChartList:first-child {
+    border: 0px;
+}
+.activityItem {
+    border-left: 2px solid #007db8;
+    margin-bottom: 2px;
+}
+.rightHorizontalLine, .horizontalLine {
+    overflow: hidden;
+    text-align: left;
+}
+.rightHorizontalLine:after, .horizontalLine:after {
+    background-color: #DDDDDD;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+.rightHorizontalLine:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+.pieChartWithLabels > span{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.console-app .popover {
+	border-radius: 0;
+}
+.console-app button:focus,
+.console-app button:active:focus {
+	outline-color: #666;
+	outline-style: dotted;
+	outline-offset: 3px;
+	outline-width: 1px;
+}
+.console-app .btn {
+    border: 0;
+    border-radius: 0;
+	background-image: none;
+}
+.console-app .btn-primary,
+.console-app .ngdialog.ngdialog-theme-default .ngdialog-button.ngdialog-button-primary{
+    background-color: #007DB8;
+    color: #fff;
+}
+.console-app .btn-primary:hover {
+    background-color: #00447C;
+    background-position: 0;
+}
+.console-app .btn-primary:focus {
+    background-color: #005A85;
+}
+.console-app .btn-primary:active {
+    background-color: #00447C;
+}
+.console-app .btn-primary:disabled {
+    background-color: #53A4CB;
+}
+.console-app .btn-default {
+	background-color: #888;
+	color: #fff;
+	text-shadow: none;
+	background-image: none;
+	border: 0px none;
+}
+.console-app .btn-default:hover {
+	background-color: #BBBBBB;
+	color: #fff;
+}
+.console-app .btn-default:focus {
+	background-color: #CCCCCC;
+}
+.console-app .btn-default:active {
+	background-color: #BBBBBB;
+	color: #fff;
+}
+.console-app .btn-default:disabled {
+	background-color: #EEEEEE;
+	color: #000;
+}
+.console-app [uib-datepicker] button,
+.console-app [ui-datepicker] button {
+	background-color: #fff;
+	color: #333;
+}
+.console-app [uib-datepicker] button:hover,
+.console-app [ui-datepicker] button:hover {
+	background-color: #ddd;
+	color: #333;
+}
+
+.input{
+	 border-radius: 0;
+}
+.primary{
+	color: #007db8;
+}
+.ci.primary {
+	color: #007db8;
+}
+.ci.error {
+	color: #CE1126;
+}
+.ci.warning {
+	color: #F2AF00;
+}
+.ci.warning.pale {
+	color: #EE6411;
+}
+.ci.ok {
+	color: #6EA204;
+}
+.ci.unknown {
+	color: #AAAAAA;
+}
+.ci.text {
+	font-family: 'Roboto', sans-serif;
+}
+
+.console-app .progress,
+.console-app .progress-bar,
+.console-app button,
+.console-app .modal-content,
+.console-app .form-control,
+.console-app .ngdialog.ngdialog-theme-default .ngdialog-content,
+.console-app .ngdialog.ngdialog-theme-default .ngdialog-button
+{
+	border-radius: 0;
+}
+.console-app .ui-grid-top-panel {
+	background: transparent;
+}
+
+.console-app a,
+.console-app a:hover,
+.console-app a:focus,
+.console-app a:active {
+	color: #007db8;
+}
+.console-app a:hover {
+	text-decoration: underline;
+}
+.console-app a:focus {
+	outline: 1px dashed #AAAAAA;
+}
+
+.console-app a.cibutton {
+	color: #fff;
+}
+.form-elem {
+	height: 26px;
+}
+.console-app .ui-grid-header-cell,
+.console-app .ui-grid-cell {
+	border-bottom: 1px solid #e4e4e4;
+}
+.console-app .ui-grid-row:nth-child(odd) .ui-grid-cell {
+	background-color: #fff;
+}
+.console-app .ui-grid-row:nth-child(even) .ui-grid-cell {
+	background-color: #fff;
+}
+.console-app div.ui-grid-cell input[type="checkbox"] {
+	margin-left: 0;
+}
+.console-app .ui-grid-row:hover > [ui-grid-row] > .ui-grid-cell {
+	background-color: #eee;
+}
+.console-app .ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+	background-color: #007db8;
+}
+.console-app div.ui-grid-cell input[type="radio"].radio-inline {
+	margin-top: 8px;
+}
+.console-app div.ui-grid-cell input[type="checkbox"] {
+	margin-left: 0;
+}
+.console-app .ui-grid-row div.ui-grid-cell .fullht{
+	line-height: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+.console-app .ui-grid-row div.ui-grid-cell .middle{
+	display: inline-block;
+	vertical-align: middle;
+}
+.console-app .ui-grid-row:hover > [ui-grid-row] > .ui-grid-cell {
+	background-color: #eee;
+}
+.console-app .ui-grid-row > [ui-grid-row] > .ui-grid-cell [class*="c4-ci-"]{
+	color: #007db8;
+	cursor: pointer;
+}
+.console-app .ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell input{
+	color: #000;
+}
+.console-app .ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell [class*="c4-ci-"].inverted {
+	color: #007db8;
+}
+.console-app .ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell [class*="c4-ci-"]{
+	color: #fff;
+}
+.console-app .ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+	background-color: #CCE5F1;
+}
+/*.console-app .ui-grid-row.ui-grid-row-selected .ci-nav-help-core:before {
+	color: #fff !important;
+}
+.console-app .ui-grid-row.ui-grid-row-selected .c4-ci-info-circle-i:before {	
+	color: #fff !important;
+}*/
+.console-app .ui-grid-row.ui-grid-row-selected .c4-ci-arrow-down:before {
+	color: #fff !important;
+}
+.console-app .cellTemplateFontSize td{
+	height: 30px;
+}
+.console-app [group-aware-device-picker] device\-select{
+	display: block;
+}
+.console-app [group-aware-device-picker] device\-select > div:first-child{
+	display: none;
+}
+.console-app .inline-grid-text-field {
+	line-height: 28px;
+	padding-left: 5px;
+}
+.console-app .inline-grid-custom-editor-template {
+	border: 1px solid #d4d4d4;
+	background: #fff;
+	line-height: 28px;
+}
+.console-app .inline-grid-custom-editor-template .exclude-icon-wide {
+	width: 90%;
+}
+.console-app .inline-grid-custom-editor-template .icon-holder {
+	width: 10%;
+	padding-left: 15px;
+}
+.console-app [ui-grid-row] .ui-grid-cell .inline-grid-custom-editor-template.inline-edit-error{
+	border-color: #f00;
+}
+.console-app [ui-grid-row] .ui-grid-cell .inline-grid-custom-editor-template.inline-edit-error input{
+	color: #f00;
+}
+.light-label {
+	font-weight: normal;
+}
+.console-app .wizard-global .modal-footer {
+	border-top: 0 none;
+}
+.ui-grid-header-cell input[type=checkbox] {
+	vertical-align: middle;
+	margin-top: 7px;
+}
+.ui-grid-cell .progress-container {
+	padding: 0 5px;
+}
+.ui-grid-cell .progress {
+	border: 1px solid #fff;
+	margin-top: 5px;
+}
+.grid-kb-nav {
+	position: fixed;
+	top: -200px;
+	left: -200px;
+}
+.highlight-grid {
+	box-shadow: 0 0 6px #007db8;
+}
+.custom-table {
+	display: table;
+}
+.custom-table .custom-cell{
+	display: table-cell;
+	vertical-align: middle;
+}
+.grid-app .selectall {
+	text-align: center;
+	line-height: 30px;
+}
+.value-field {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.bordered-row.first {
+	border-top: solid 1px #A5A2A2;
+}
+.bordered-row {
+	border-bottom: solid 1px #A5A2A2;
+	line-height: 30px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.bordered-row.last {
+	border-bottom: 0 none;
+}
+.droptarget {
+	border: 2px dashed #007db8;
+}
+.dragover {
+	border: 3px dashed #6ea204;
+}
+.no-wizard-buttons .modal-footer{
+	display: none;
+}
+.one-wizard-buttons .modal-footer .btn-primary{
+	display: none;
+}
+.one-wizard-buttons.cancel-primary .modal-footer .btn-default{
+	background-color: #007DB8;
+}
+ul.nav-tabs li:hover {
+	cursor: not-allowed;
+}
+ul.nav-tabs li {
+	position: relative;
+}
+.disable-link-overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.errored {
+	border-color: #f00 !important;
+}
+.details-panel {
+	padding: 5px 10px 10px;
+	background-color: #f4f4f4;
+}
+.details-panel .details-panel-title {
+	margin-top: 15px;
+}
+.details-panel-title {
+	line-height: 30px;
+	overflow: auto;
+	clear: both;
+}
+.details-panel-title div{
+	float: left;
+}
+.details-panel-title div:first-child span{
+	font-size: 24px;
+}
+.details-panel-title div:last-child{
+	font-weight: 700;
+	font-size: 17px;
+}
+.overflow-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.std-ht {
+	line-height: 30px;
+}
+.gap-left {
+	margin-left: 20px;
+}
+.gap-right {
+	margin-right: 20px;
+}
+.gap-top {
+	margin-top: 20px;
+}
+.gap-bottom {
+	margin-bottom: 20px;
+}
+.half-gap-left {
+	margin-left: 10px;
+}
+.half-gap-right {
+	margin-right: 10px;
+}
+.half-gap-top {
+	margin-top: 10px;
+}
+.half-gap-bottom {
+	margin-bottom: 10px;
+}
+[health-state] span.text-center {
+	display: inline-block;
+	width: 100%;
+}
+h5 {
+	font-weight: 700;
+	font-size: 15px;
+}
+#inventory_list .ui-grid-row > [ui-grid-row] > .ui-grid-cell input {
+	border: 0 none;
+}
+.overflow-prevention {
+	word-break: break-word;
+}
+[ui-grid-header-cell] .ui-grid-header-cell-label {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 500;
+	color: #777;
+}
+[aria-sort="ascending"] .ui-grid-header-cell-label,
+[aria-sort="descending"] .ui-grid-header-cell-label{
+	color: #444;
+}
+.grid-sort {
+	display: inline-block;
+	font-size: 11px;
+	transition: all .07s linear 0s;
+}
+.grid-sort.asc {
+	transform: rotate(-90deg);
+	opacity: 1;
+}
+.grid-sort.asc:before {
+	content: "\e6f1";
+}
+.grid-sort.desc {
+	transform: rotate(90deg);
+	opacity: 1;
+}
+.grid-sort.desc:before {
+	content: "\e6f1";
+}
+.grid-sort.none {
+	opacity: 0;
+}
+.om-pagination {
+	font-size: 12px;
+}

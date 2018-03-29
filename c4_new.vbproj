@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{57C6F241-0A2E-41EB-822E-9439A240EA62}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>c4_new</RootNamespace>
+    <AssemblyName>c4_new</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>c4_new.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>c4_new.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\c4_new.dll" />
+    <Content Include="bin\c4_new.pdb" />
+    <Content Include="bin\c4_new.xml" />
+    <Content Include="cp-core\common\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="cp-core\common\fonts\fontawesome-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100_Italic-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300_Italic-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500_Italic-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700-webfont.svg" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700_Italic-webfont.svg" />
+    <Content Include="cp-core\common\library\angular-animate.js" />
+    <Content Include="cp-core\common\library\angular-datepicker.js" />
+    <Content Include="cp-core\common\library\angular-messages.min.js" />
+    <Content Include="cp-core\common\library\angular-modal-service.js" />
+    <Content Include="cp-core\common\library\angular-route.min.js" />
+    <Content Include="cp-core\common\library\angular-sanitize.min.js" />
+    <Content Include="cp-core\common\library\angular-translate.min.js" />
+    <Content Include="cp-core\common\library\angular.min.js" />
+    <Content Include="cp-core\common\library\AngularUI\ui-router.js" />
+    <Content Include="cp-core\common\library\AngularUI\ui-router.min.js" />
+    <Content Include="cp-core\common\library\bootstrap.min.js" />
+    <Content Include="cp-core\common\library\jquery-1.9.1.min.js" />
+    <Content Include="cp-core\common\library\jstree.js" />
+    <Content Include="cp-core\common\library\jstree.min.js" />
+    <Content Include="cp-core\common\library\ocLazyLoad.js" />
+    <Content Include="cp-core\common\library\readme.txt" />
+    <Content Include="cp-core\common\library\ui-bootstrap-tpls-2.1.3.js" />
+    <Content Include="cp-core\common\library\ui-grid.js" />
+    <Content Include="cp-core\common\resources\icons\32px.png" />
+    <Content Include="cp-core\common\resources\icons\40px.png" />
+    <Content Include="cp-core\common\resources\icons\dell-favicon.ico" />
+    <Content Include="cp-core\common\resources\icons\readme.txt" />
+    <Content Include="cp-core\common\resources\icons\style.min.css" />
+    <Content Include="cp-core\common\resources\icons\throbber.gif" />
+    <Content Include="cp-core\common\resources\icons\tree-style.css" />
+    <Content Include="cp-core\common\resources\images\readme.txt" />
+    <Content Include="cp-core\common\sass\readme.txt" />
+    <Content Include="cp-core\common\scripts\directives\jsTree.directive.js" />
+    <Content Include="cp-core\common\scripts\directives\modal-component.js" />
+    <Content Include="cp-core\common\scripts\directives\input-component.js" />
+    <Content Include="cp-core\common\styles\angular-datepicker.css" />
+    <Content Include="cp-core\common\styles\icons.css" />
+    <Content Include="cp-core\common\styles\style-button.css" />
+    <Content Include="cp-core\common\styles\tree-style.css" />
+    <Content Include="cp-core\common\styles\ui-grid.css" />
+    <Content Include="resources\icons\flickr.gif" />
+    <Content Include="resources\icons\top.png" />
+    <Content Include="resources\images\logo.png" />
+    <Content Include="resources\images\nsf_building_wilson.jpg" />
+    <Content Include="scripts\config.js" />
+    <Content Include="scripts\constants.js" />
+    <Content Include="scripts\controller-reference.js" />
+    <Content Include="scripts\controllers\component\component-controller.js" />
+    <Content Include="scripts\controllers\deployment\deplopmentWizard-controller.js" />
+    <Content Include="scripts\controllers\deployment\deployment-controller.js" />
+    <Content Include="scripts\controllers\device\alertlog-controller.js" />
+    <Content Include="scripts\controllers\device\device-controller.js" />
+    <Content Include="scripts\controllers\form\form-controller.js" />
+    <Content Include="scripts\controllers\navigation\navigation-controller.js" />
+    <Content Include="scripts\controllers\modals\modal-controller.js" />
+    <Content Include="scripts\controllers\page-tab\pagetab-controller.js" />
+    <Content Include="scripts\controllers\tree\tree-controller.js" />
+    <Content Include="scripts\controllers\wizard\wizard-controller.js" />
+    <Content Include="scripts\factory.js" />
+    <Content Include="scripts\global-controller.js" />
+    <Content Include="scripts\controllers\manage\manage-controller.js" />
+    <Content Include="scripts\controllers\tab\tabaccordion-controller.js" />
+    <Content Include="scripts\app.js" />
+    <Content Include="cp-core\common\scripts\directives\navigation-component.js" />
+    <Content Include="cp-core\common\scripts\readme.txt" />
+    <Content Include="cp-core\common\styles\app.css" />
+    <Content Include="cp-core\common\styles\readme.txt" />
+    <Content Include="cp-core\common\styles\style.css" />
+    <Content Include="cp-core\common\template\cp-templates.js" />
+    <Content Include="cp-core\components\readme.txt" />
+    <Content Include="cp-core\help\readme.txt" />
+    <Content Include="cp-core\localization\de-DE\locale-de.js" />
+    <Content Include="cp-core\localization\de-DE\readme.txt" />
+    <Content Include="cp-core\localization\es-ES\readme.txt" />
+    <Content Include="cp-core\localization\fr-FR\readme.txt" />
+    <Content Include="cp-core\localization\ja-JP\readme.txt" />
+    <Content Include="cp-core\localization\locale-de.js" />
+    <Content Include="cp-core\localization\locale-en.js" />
+    <Content Include="cp-core\localization\zh-CN\readme.txt" />
+    <Content Include="cp-core\readme.txt" />
+    <Content Include="cp-core\samples\readme.txt" />
+    <Content Include="documents\api-docs\readme.txt" />
+    <Content Include="documents\c4\readme.txt" />
+    <Content Include="documents\readme.txt" />
+    <Content Include="help\readme.txt" />
+    <Content Include="index.html" />
+    <Content Include="obj\Debug\c4_new.dll" />
+    <Content Include="obj\Debug\c4_new.pdb" />
+    <Content Include="obj\Debug\c4_new.vbproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\c4_new.xml" />
+    <Content Include="resources\icons\readme.txt" />
+    <Content Include="resources\images\readme.txt" />
+    <Content Include="resources\readme.txt" />
+    <Content Include="scripts\controllers\home\home-controller.js" />
+    <Content Include="cp-core\common\library\require\r.js" />
+    <Content Include="cp-core\common\library\require\readme.txt" />
+    <Content Include="cp-core\common\library\require\require.js" />
+    <Content Include="cp-core\common\library\require\text.js" />
+    <Content Include="cp-core\common\scripts\services\alert-services.js" />
+    <Content Include="scripts\services\alert-services.js" />
+    <Content Include="styles\readme.txt" />
+    <Content Include="views\component\component.html" />
+    <Content Include="views\component\form-component.html" />
+    <Content Include="views\device\alertdefinition.html" />
+    <Content Include="views\device\alertlog.html" />
+    <Content Include="views\device\alertpolicy.html" />
+    <Content Include="views\modal-wizard.html" />
+    <Content Include="views\modals\modal.html" />
+    <Content Include="views\progress-modal.html" />
+    <Content Include="views\tabs\tab.html" />
+    <Content Include="views\deployment\deployment.html" />
+    <Content Include="views\device\device.html" />
+    <Content Include="views\home\home.html" />
+    <Content Include="views\jobs\design.html" />
+    <Content Include="views\jobs\development.html" />
+    <Content Include="views\manage\manage.html" />
+    <Content Include="views\readme.txt" />
+    <Content Include="views\settings\advanced.html" />
+    <Content Include="views\settings\management.html" />
+    <Content Include="views\settings\user.html" />
+    <Content Include="views\tabs\angular.html" />
+    <Content Include="views\tabs\backbone.html" />
+    <Content Include="views\tabs\meteor.html" />
+    <Content Include="views\tabs\react.html" />
+    <Content Include="views\templates\alert.html" />
+    <Content Include="views\templates\help.html" />
+    <Content Include="views\templates\user.html" />
+    <Content Include="views\tree\tree.html" />
+    <Content Include="views\wizard-template.html" />
+    <Content Include="views\wizards\form-interests.html" />
+    <Content Include="views\wizards\form-payment.html" />
+    <Content Include="views\wizards\form-profile.html" />
+    <Content Include="views\wizards\form.html" />
+    <Content Include="views\wizards\wizard-modal.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\c4_new.Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cp-core\common\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="cp-core\common\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="cp-core\common\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="cp-core\common\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="cp-core\common\fonts\fontawesome-webfont.eot" />
+    <Content Include="cp-core\common\fonts\fontawesome-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\fontawesome-webfont.woff" />
+    <Content Include="cp-core\common\fonts\fontawesome-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\FontAwesome.otf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100_Italic-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100_Italic-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100_Italic-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-100_Italic-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300_Italic-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300_Italic-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300_Italic-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-300_Italic-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500_Italic-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500_Italic-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500_Italic-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-500_Italic-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700-webfont.woff2" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700_Italic-webfont.eot" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700_Italic-webfont.ttf" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700_Italic-webfont.woff" />
+    <Content Include="cp-core\common\fonts\MuseoSansForDell-700_Italic-webfont.woff2" />
+    <Content Include="cp-core\common\library\jquery-1.9.1.min.map" />
+    <Content Include="data\control-navigation-data.json" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="obj\Debug\c4_new.vbproj.GenerateResource.Cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="resources\users-data.json" />
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="scripts\controllers\jobs\" />
+    <Folder Include="scripts\controllers\settings\" />
+    <Folder Include="views\accord\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13250/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

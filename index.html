@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="cp-core/common/resources/icons/dell-favicon.ico" />
+    <link rel="icon" type="image/ico" href="cp-core/common/resources/icons/dell-favicon.ico" />
+    <title> C4 - PESHI Component </title>
+   <link href="cp-core/common/styles/app.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/icons.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/ui-grid.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/nv.d3.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/angular-datepicker.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/style-button.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/tree-style.css" rel="stylesheet" />
+    <link href="cp-core/common/styles/style.css" rel="stylesheet" />
+</head>
+<body data-ng-cloak ng-controller="GlobalController">
+    <cp-progress></cp-progress>
+   <div>
+        <cp-master-head application-logo-path="../resources/images/logo.png"  application-name="POC" application-href="/" navigation-model="stickyNavigationData">
+           <cp-control-navigation>
+                    <cp-masterhead-search></cp-masterhead-search>
+                    <cp-link-button href="http://en.community.dell.com/techcenter/systems-management/w/wiki/openmanage-essentials.aspx" target="_blank"><cp-icon icon-class="info-sign" title="About OME"></cp-icon></cp-link-button>
+                    <cp-link-button href="http://www.dell.com/support/" target="_blank"><cp-icon icon-class="support" title="Support"></cp-icon></cp-link-button>
+                    <cp-drop-down-button cp-data="alertsData" template-path="/views/templates/alert.html" title="Settings "><cp-icon icon-class="bell" title="Settings"></cp-icon> </cp-drop-down-button>
+                    <cp-drop-down-button  cp-data="userDetails" template-path="/views/templates/user.html"><cp-icon icon-class="user" title="User"></cp-icon></cp-drop-down-button>
+                    <cp-link-button href="javascript:void(0)" ng-click="aboutOME()"><cp-icon icon-class="info-sign" title="About OME"></cp-icon></cp-link-button>
+                    <cp-link-button href="http://en.community.dell.com/techcenter/systems-management/w/wiki/openmanage-essentials.aspx" target="_blank"><cp-icon icon-class="question-sign" title="Help"></cp-icon></cp-link-button>
+                </cp-control-navigation> 
+        </cp-master-head>
+   </div>
+    <div class="top-navigation">
+        <cp-top-navigation  navigation-model="topNavigationData"></cp-top-navigation>
+    </div>
+    <div class="wrapper-content">
+        <div class="container-fluid">
+            <cp-alerts></cp-alerts>
+            <cp-modal modal-size="modal-lg"></cp-modal>
+            <cp-left-navigation navigation-model="leftNavigationData" class="left-navigation"></cp-left-navigation>
+             <div class="content-container">
+                <div ui-view class="page" autoscroll="false"></div>
+            </div>
+        </div> 
+        
+    </div> 
+    <cp-btn-scroll-top visible-after="300"></cp-btn-scroll-top>
+    <script src="cp-core/common/library/require/require.js" data-main="scripts/app"></script>
+
+</body>
+</html>

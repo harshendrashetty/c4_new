@@ -1,0 +1,74 @@
+﻿<div>
+    <div ng-class="steps[wizard.index].className" class="wizard-global">
+        <div class="modal-header" ng-if="steps[wizard.index].title">
+            <h3 class="modal-title">
+            <span ng-class="steps[wizard.index].icon ? steps[wizard.index].icon : 'glyphicon glyphicon-tasks' ">
+            </span>
+                {{ steps[wizard.index].title | translate}}
+            </h3>
+            <div class="close-icon c4-ci-close-x" ng-click="cancel()">&nbsp;</div>
+            <h4 ng-if="steps[wizard.index].description" class="wizard-desc"> {{ steps[wizard.index].description | translate}} </h4>
+        </div>
+
+        <div class="modal-body" ng-class="{hidestep: !!steps[wizard.index].header === false}">
+            <div class="clearfix wizard-body overflow-prevention">
+                <div class="wizard-row">
+                    <div class="wizard-left-nav">
+                        <div class="ul">
+                            <div ng-repeat="step in getSteps()" class="wizard-step-li" ng-class="{selectedstep:wizard.index === $index}">
+                                <a ng-click="selectPane($index)">{{ step.header | translate}}</a>
+                                <div class="wizard-pointer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-form-wrapper">
+                        <form class="form-horizontal" name="forms.userForm" novalidate>
+                            <div wizard-form ng-repeat="step in getSteps()" ng-class="{'wizard-step-show': wizard.index === $index}">
+                                <ng-form name="{{'step' + $index}}">
+                                    <div class="wiz-view clearfix"></div>
+                                </ng-form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer s300">
+            <div class="clearfix">
+                <div class="pull-left" ng-hide="getHideStepsFlag()">Step {{wizard.index + 1}} of {{getSteps().length}}</div>
+                <div class="pull-right">
+                    <button class="btn btn-default" ng-repeat="bttn in steps[wizard.index].customButtons"
+                            ng-click="customButtonsHandler(bttn)" ng-class="bttn.className" ng-disabled="bttn.isDisabled(getBindingData(true))">
+                        {{(bttn.label || 'modules.base.custom') | translate}}
+                    </button>
+
+                    <button class="btn btn-primary" ng-click="previous()" ng-hide="wizard.index == 0" ng-class="steps[wizard.index].buttonClass.previous">
+                        {{ (steps[wizard.index].buttons.previous || 'modules.base.previous') | translate}}
+                    </button>
+                    <button class="btn btn-primary" ng-click="next()" ng-hide="wizard.index >= getSteps().length - 1"
+                            ng-disabled="forms.userForm['step'+wizard.index].$invalid" ng-class="steps[wizard.index].buttonClass.next">
+                        {{ (steps[wizard.index].buttons.next || 'modules.base.next') | translate}}
+                    </button>
+                    <button class="btn btn-primary" ng-click="ok()" ng-hide="notGoodToFinish()" ng-class="steps[wizard.index].buttonClass.finish">
+                        {{ (steps[wizard.index].buttons.finish || 'modules.base.finish') | translate}}
+                    </button>
+                    <button class="btn btn-default" ng-click="cancel()" ng-class="steps[wizard.index].buttonClass.cancel">
+                        {{(steps[wizard.index].buttons.cancel || 'modules.base.cancel') | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="showOverlay()" class="network-req-overlay">
+        <div class="wizard-overlay"></div>
+        <div class="wizard-spinner-container">
+            <div>
+            <span class="wizard-spinner-n-text">
+                <img src="app/directives/wizard/rotationScale.gif">
+                <span class="wizard-spinner-additional-text">{{getOverlayText() | translate}}</span>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>

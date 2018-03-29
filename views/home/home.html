@@ -1,0 +1,414 @@
+﻿<div class="container-fluid">
+    <cp-modal modal-size="modal-lg"></cp-modal>
+
+    <cp-error-message></cp-error-message>
+    <h2>Form Inputs</h2>
+    <form novalidate name="inputForm" class="form-horizontal">
+        <div class="row">
+             <div class="col-md-12"><h2 class="alert alert-info" style="padding:8px 15px; font-size:18px;">Type Text</h2></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Text
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="username"  ng-model="user.name" label="{{'formlabels.username' | translate}}" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" error-state="right" ng-blur="showAlert()" placeholder="input field" error-state="right"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="username2"  ng-model="user.name1" label="{{'formlabels.username' | translate}}" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" error-state="right" ng-blur="showAlert()" placeholder="input field" cp-disabled="true"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Number input-->
+            <div class="col-md-12"><h2  class="alert alert-info" style="padding:8px 15px; font-size:18px;">Type Number</h2></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Number
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input type="number" name="regnumber" label="{{'formlabels.regnumber' | translate}}" ng-model="user.regnumber" required="true" min="5" max="1000"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input type="number" name="regnumber2" label="{{'formlabels.regnumber' | translate}}" ng-model="user.regnumber2" cp-disabled="true" required="true" min="5" max="1000"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Email input-->
+            <div class="col-md-12 "><h2  class="alert alert-info" style="padding:8px 15px; font-size:18px;">Type Email</h2></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Email
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="emaila" type="email" label="{{'formlabels.email' | translate}}" ng-model="user.email" required="true"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="email" type="email" label="{{'formlabels.email' | translate}}" cp-disabled="true" ng-model="user.email2" required="true"> </cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- IP input-->
+            <div class="col-md-12"><h2  class="alert alert-info" style="padding:8px 15px; font-size:18px;">Type IP</h2></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        IP
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input type="ip" name="ipaddress1" ng-model="user.ip1" label="{{'formlabels.ip' | translate}}"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input type="ip" name="ipaddress" ng-model="user.ip" label="{{'formlabels.ip' | translate}}" cp-disabled="true"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- URL input-->
+            <div class="col-md-12"><h2  class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type URL</h2></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        URL
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="userurl1" type="url" ng-model="user.url1" label="{{'formlabels.url' | translate}}"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="userurl" type="url" ng-model="user.url" label="{{'formlabels.url' | translate}}"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- URL input-->
+            <div class="col-md-12"><h5  class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type Password</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Password
+                    </legend>
+                    <p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="userPassword" id="userPassword" type="password" valid="ULNS" label="Password" ng-model="user.password"  minlength="5" maxlength="12"></cp-input>
+                            <cp-input name="userConfirmPassword" type="password" label="Confirm Password" cp-confirm-password="userPassword"  minlength="5" ng-model="user.confirmpassword"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-input name="userPassword2" id="userPassword2" type="password" valid="ULNS" label="Password" ng-model="user.password2"  cp-disabled="true"  minlength="5" maxlength="12"></cp-input>
+                            <cp-input name="userConfirmPassword2" type="password" label="Confirm Password" cp-confirm-password="userPassword2"  cp-disabled="true"  minlength="5" ng-model="user.confirmpassword2"></cp-input>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Radio group input-->
+            <div class="col-md-12"><h5  class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type Radio Button</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Radio Button
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <cp-radio-group name="gender" radio-items="genderlist" radio-model="user.gender" label="Gender" cp-class="radio-inline"  ></cp-radio-group>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                           
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Select Box input-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type Select Box</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Select
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-select select-options="selectData" label="{{'formlabels.country' | translate}}" cp-class="select-width"  ng-model="user.country1" label-key="label" value-key="value" default-label="- Select - " required="true"></cp-select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-select select-options="selectData" label="{{'formlabels.country' | translate}}" cp-disabled="true" cp-class="select-width"  ng-model="user.country" label-key="label" value-key="value" default-label="- Select - " required="true"></cp-select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Select Box input-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type Multi Select Box</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Select
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-multi-select select-options="selectData" label="{{'formlabels.country' | translate}}" cp-class="select-width"  ng-model="user.countries5" label-key="label" value-key="value" default-label="Multiple Select" required="true" error-state="right" ></cp-multi-select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-multi-select select-options="selectData" label="{{'formlabels.country' | translate}}" cp-class="select-width" cp-disabled="true" ng-model="user.countries1" label-key="label" value-key="value" default-label="Multiple Select" required="true" error-state="right" ></cp-multi-select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Checkbox-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Type Multi Select Box</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Checkbox
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-checkbox select-options="chekcboxData" label="{{'formlabels.country' | translate}}" ng-model="user.check" label-key="label" value-key="value" required cp-class="checkbox-inline checkbox-primary"></cp-checkbox>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Textarea-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;">Textarea</h5></div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Textarea
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <cp-textarea class="form-control" name="description" ng-model="mytextarea" show-characters-remaining="true" ng-maxlength='30' required label="Address:" error-state="right"></cp-textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Disabled
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                          
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row"><!-- Textarea-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;"> Tooltip</h5></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;"  tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="top" tooltip-class="change-bg"> Server </span>
+                        <span style="display:inline-block; padding:10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="right"> PDU </span>
+                        <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="bottom"> Chassis </span>
+                        <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="left"> Rack </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"><!-- Textarea-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;"> Hyperlink </h5></div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <cp-link href="abcded" title="link 1" style="margin-right:20px;"> Link 1 </cp-link>
+                        <cp-link href="abcded" title="link 2" style="margin-right:20px;"> Link 2 </cp-link>
+                        <cp-link href="abcded" title="link 3" style="margin-right:20px;"> Link 3 </cp-link>
+                        <cp-link href="abcded" title="link 4" style="margin-right:20px;"> Link 4 </cp-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"><!-- cpImage directive-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;"> CP Image  </h5></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <cp-image img-src="../resources/images/{{imgPath}}" class="img-responsive img-circle"  alt="Image title" width="100px" height="200px"></cp-image>
+                    </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="../resources/images/{{imgPath}}" class="img-responsive img-rounded"  alt="Image title" width="100px" height="200px"></cp-image>
+                     </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="../resources/images/{{imgPath}}" class="img-responsive img-thumbnail"  alt="Image title" width="100px" height="200px"></cp-image>
+                     </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="../resources/images/{{imgPath}}" class="img-responsive img-circle"  alt="Image title" width="100px" height="200px"></cp-image>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""> <h5 class="alert alert-info" style="padding:8px 15px; font-size:18px;"> Datepicker (Calender)  </h5> </div>
+                <div class="col-xs-3" style="width:300px;">   
+                    <cp-calender ng-model="date.mydate" ></cp-calender>
+                    {{date.mydate}}
+                </div>
+                <div class="col-xs-3" style="width:300px;">   
+                     <cp-calender ng-model="date.myDate2" min-date="10-10-2016" apply-date></cp-calender>
+                    {{date.mydate}}
+                </div>
+                <div class="col-xs-3" style="width:100px;">   
+                     <cp-hours ng-model="hour"></cp-hours>
+                </div>
+                <div class="col-xs-3" style="width:100px;">   
+                    <cp-minutes ng-model="minute"></cp-minutes>
+                </div>
+                <div style="width:300px;">
+                </div>
+            </div>
+        </div>
+        <div class="row"><!-- cpImage directive-->
+            <div class="col-md-12">
+            <h5 class="col-md-12" style="padding:8px 15px; font-size:18px;"> CP Button  </h5></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <cp-button class="btn btn-primary" > cp button 1 </cp-button>
+                    </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="resources/images/{{imgPath}}" class="img-responsive img-rounded"  alt="manharan lal Sahu" width="100px" height="200px"></cp-image>
+                     </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="resources/images/{{imgPath}}" class="img-responsive img-thumbnail"  alt="manharan lal Sahu" width="100px" height="200px"></cp-image>
+                     </div>
+                     <div class="col-xs-3">
+                         <cp-image img-src="resources/images/{{imgPath}}" class="img-responsive img-circle"  alt="manharan lal Sahu" width="100px" height="200px"></cp-image>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"><!-- alert directive-->
+            <div class="col-md-12"><h5 class="col-md-12 alert alert-info" style="padding:8px 15px; font-size:18px;"> CP Alert  </h5></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <ul class="nav nav-pills">
+                        <li><a href="javascript:void(0)" ng-click="testAlert()"> Show Alert </a></li>
+                        <li><a href="javascript:void(0)" ng-click="testConfirm()"> Show Confirm </a></li>
+                        <li><a href="javascript:void(0)" ng-click="addElement()"> Show Modal </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showPrompt()"> Show Prompt </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showError('info')"> Show Info </a></li>
+                         <li><a href="javascript:void(0)" ng-click="showError('success')"> Show Success </a></li>
+                         <li><a href="javascript:void(0)" ng-click="showError('warning')"> Show Warning </a></li>
+                         <li><a href="javascript:void(0)" ng-click="showError('error')"> Show Error </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="margin-bottom:30px;"></div>
+    </form>
+</div>

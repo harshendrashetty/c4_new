@@ -1,0 +1,24 @@
+﻿<div class="panel panel-default alert-drop-down">
+    <div class="panel-heading">
+        <h3 class="panel-title"><cp-icon icon-class="bell"></cp-icon>Event</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item-text alert-post-item" ng-repeat="alertItem in cpData track by $index">
+                <cp-icon class="alert-type" icon-class="{{alertItem.icon}}"></cp-icon>
+                <p class="alert-description">{{alertItem.description}} </p>
+                <div class="event-eraser">
+                    <span class="erase-post">{{alertItem.name}}</span>
+                    <span class="erase-date">{{alertItem.date}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+     <div class="panel-footer">
+       <a href="#" ng-click=""> <cp-icon icon-class="bell"></cp-icon>  View all Events </a>
+       <a href="#" ng-click="" class="pull-right"> <cp-icon icon-class="info-sign"></cp-icon> 12 </a>
+       <a href="#" ng-click="" class="pull-right"> <cp-icon icon-class="exclamation-triangle" class=""></cp-icon> 20 </a>
+       <a href="#" ng-click="" class="pull-right"> <cp-icon icon-class="times"  class="alert-danger-icon"></cp-icon> 10 </a>
+    </div>
+</div>
+    

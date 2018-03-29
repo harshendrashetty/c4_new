@@ -1,0 +1,27 @@
+﻿ <form name="userForm" novalidate="" class="form-horizontal">
+        <div class="col-md-12">
+            <h2> Registration Form </h2>
+            <!-- indluded pattern accepted small and capital a-z letters, 0--9 number and ., @, _ -->
+                <cp-input name="username"  ng-model="user.name" label="{{'formlabels.username' | translate}}" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" cp-error-pos="right" ng-blur="showAlert()" placeholder="input field" error-state="right"> </cp-input>
+                <cp-input type="number" name="regnumber" label="{{'formlabels.regnumber' | translate}}" ng-model="user.regnumber" cp-disabled="true" cp-width="250" required="true" min="5" max="1000"> </cp-input>
+                <cp-input name="email" type="email" label="{{'formlabels.email' | translate}}" ng-model="user.email" required="true"> </cp-input>
+                <cp-input type="ip" name="ipaddress" ng-model="user.ip" label="{{'formlabels.ip' | translate}}"></cp-input>
+                <cp-input name="userurl" type="url" ng-model="user.url" label="{{'formlabels.url' | translate}}"></cp-input>
+                <cp-input name="userPassword" id="Cp-input2" type="password" valid="ULNS" label="Password" ng-model="user.password"  minlength="5" maxlength="12"></cp-input>
+                <cp-input name="userConfirmPassword" type="password" label="Confirm Password" cp-confirm-password="userPassword" minlength="5" ng-model="user.confirmpassword"></cp-input>
+                <cp-radio-group name="gender" radio-items="genderlist" radio-model="user.gender" label="Gender"></cp-radio-group>
+                <cp-select select-options="selectData" label="{{'formlabels.country' | translate}}" cp-class="select-width"  ng-model="user.country" label-key="label" value-key="value" error-state="right"  default-label="- Select - " required="true"></cp-select>
+
+                <cp-multi-select select-options="selectData" label="{{'formlabels.state' | translate}}" cp-class="select-width" cp-disabled="showSelectbox" ng-model="user.countries" label-key="label" value-key="value" default-label="Multiple Select" cp-error-pos="right" ></cp-multi-select>
+
+                <cp-checkbox select-options="chekcboxData" label="{{'formlabels.country' | translate}}" ng-model="user.check" label-key="label" value-key="value" required></cp-checkbox>
+                <div class="">
+                    <cp-textarea class="" name="manharan" ng-model="mytextarea" show-characters-remaining="true" ng-maxlength='30' required label="Address:" error-pos="right" cp-disabled="true"></cp-textarea>
+                </div>
+                <div class="form-group">
+                    <cp-button class="btn btn-primary" cp-type="medium" ng-click="submit()" ng-disabled="userForm.$invalid"> {{'formlabels.submit' | translate}} </cp-button>
+                </div>
+          </div>
+        <!--<div class="col-md-12"><pre> User {{user | json}} </pre></div>-->
+         
+    </form>

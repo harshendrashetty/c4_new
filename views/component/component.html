@@ -1,0 +1,826 @@
+﻿<div class="container-fluid">
+    <h2>UI Components - Demo</h2>
+     <cp-error-message error-id="globalerrormessage"></cp-error-message>
+    <div style="margin-top:20px;">
+         <div class='col-md-4'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Alert Status</h3>
+                </div>
+                <div class="panel-body">
+                    <nvd3 options="pie_chart_options" data="pie_chart_data"></nvd3>
+                </div>
+            </div>
+	    </div>
+	    <div class='col-md-4'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Devices Discovered</h3>
+                </div>
+                <div class="panel-body">
+                    <nvd3 options="options" data="data"></nvd3>
+                </div>
+            </div>
+	    </div>
+	    <div class='col-md-4'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Device Status</h3>
+                </div>
+                <div class="panel-body">
+		            <nvd3 options="donut_chart_options" data="pie_chart_data"></nvd3>
+                </div>
+            </div>
+	    </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+	    <div class='col-md-12'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Grid</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-show="globalGridData.gridOptions.data.length">
+                        <div class="actions-buttons">
+                            <button class="cibutton cibutton-blue" privilege="button.requiredPrivileges" ng-click="getSelectedIds()"> Acknowledge </button>
+                            <button class="cibutton cibutton-blue" privilege="button.requiredPrivileges"> Unacknowledge </button>
+                            <button class="cibutton cibutton-blue" privilege="button.requiredPrivileges"> Ignore </button>
+                            <button class="cibutton cibutton-blue" privilege="button.requiredPrivileges"> Export </button>
+                            <button class="cibutton cibutton-red" privilege="button.requiredPrivileges"> Delete </button>
+                            <button class="cibutton cibutton-blue" privilege="button.requiredPrivileges"> Archive Alerts </button>
+                        </div>
+                        <div class="filter-filed">
+                            <span ng-click="showFilter()">
+                                <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-right" ng-class="{'glyphicon-chevron-down':!advancedFiltersToggle }"></a>
+                                <span class="glyphicon glyphicon-filter"></span>
+                                <span>Advanced Filters</span>
+                            </span>
+                            <span class="clear-filter" ng-show="!advancedFiltersToggle">
+                                <a href="javascript:void(0)"  ng-click="clearFilterform()"> Clear Filter </a>
+                            </span>
+                            <div style="overflow-y: auto; background-color: rgb(248, 249, 246);" ng-hide="advancedFiltersToggle" class="">
+		                        <div class="col-sm-12" style="padding: 1%">
+			                        <div class="col-sm-2" id="selectMsgIdContains">
+				                        <span class="ng-binding">Message ID Contains</span> 
+				                        <input type="text" class="form-control input ng-valid ng-pristine ng-untouched" ng-model="filter.messageId" ng-model-options="{ debounce: 500 }" ng-change="getAlertsCategoryData()">
+			                        </div>
+			                        <div class="col-sm-3" id="selectMsgContains">
+				                        <span class="ng-binding">Message Contains</span> 
+				                        <input type="text" class="form-control input ng-valid ng-pristine ng-untouched" ng-model="filter.message" ng-model-options="{ debounce: 500 }" ng-change="getAlertsCategoryData()">
+			                        </div>
+			                        <div class="col-sm-2" id="selectCatalog">
+				                        <span class="ng-binding">Catalog</span> 
+				                        <input type="text" class="form-control input ng-valid ng-pristine ng-untouched" ng-model="filter.catalog" ng-model-options="{ debounce: 500 }" ng-change="getAlertsCategoryData()" disabled="">
+			                        </div>
+			                        <div class="col-sm-2" id="selectCategory">
+				                        <span class="ng-binding">Category</span> 
+				                        <select class="form-control ng-pristine ng-untouched ng-valid" ng-options="category.eventCategoryName as category.eventCategoryName for category in category.alertCategory" ng-model="filter.category" ng-change="getAlertsCategoryData()"><option value="" class="ng-binding" selected="selected">All</option><option value="string:Audit" label="Audit">Audit</option><option value="string:Configuration" label="Configuration">Configuration</option><option value="string:Storage" label="Storage">Storage</option><option value="string:System Health" label="System Health">System Health</option></select>
+			                        </div>
+                                    <div class="col-sm-2" id="selectSubCategory">
+                                        <span class="ng-binding">Subcategory</span>
+                                        <input type="text" class="form-control input ng-valid ng-pristine ng-untouched" ng-model="filter.subCategory" ng-model-options="{ debounce: 500 }" ng-change="getAlertsCategoryData()">
+                                    </div>
+		                        </div>
+	                        </div>
+                        </div>
+                        <div class="col-sm-12" style="padding-left:0px; padding-right:0px;">
+                            <div   id="{{globalGridData.gridId}}" ui-grid="globalGridData.gridOptions" class="grid"  ui-grid-auto-resize  ui-grid-pagination="" ui-grid-selection="">
+                            </div>
+                            <cp-grid-pagination grid-api='gridApi'></cp-grid-pagination>
+                        </div>
+		            </div>
+                    <div class="no-data" ng-show="!globalGridData.gridOptions.data.length">
+                        <div class="msg">
+                            <span>No Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+    </div>
+
+    <div class="row" style="margin-top: 15px; display: block;">
+        <div class='col-md-12'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Grid-2</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-9">
+                        <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;">
+                            <div id="{{globalGridData2.gridId}}" ui-grid="globalGridData2.gridOptions" class="grid" ui-grid-auto-resize ui-grid-pagination="" ui-grid-selection="">
+                            </div>
+                            <cp-grid-pagination grid-api='gridApi2'></cp-grid-pagination>
+                        </div>
+                        <div class="no-data" ng-show="!globalGridData2.gridOptions.data.length">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>User name:  <strong>{{globalGridData2.selectedUser.name}}</strong></div>
+                        <div><span> About user:</span> <p>{{globalGridData2.selectedUser.about}}</p> </div>
+                        <div><span> Company : </span> <p><strong>{{globalGridData2.selectedUser.company}}</strong></p> </div>
+                        <div><span> Email : </span> <p><strong>{{globalGridData2.selectedUser.email}}</strong></p> </div>
+                        <div><span> Registered : </span> <p><strong>{{globalGridData2.selectedUser.registered}}</strong></p> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Master Header component  </h3>
+                </div>
+                <div class="panel-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Top Navigation  </h3>
+                </div>
+                <div class="panel-body">
+                     <cp-top-navigation  navigation-model="topNavigationData"></cp-top-navigation>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Left Navigation  </h3>
+                </div>
+                <div class="panel-body">
+                     <cp-left-navigation navigation-model="deviceLeftNavigation" class="left-navigation" style="position:relative;"></cp-left-navigation>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Tree  </h3>
+                </div>
+                <!--<div class="panel-body">
+                      <js-tree tree-data="scope" tree-model="treeModel" tree-events="ready:readyCB; open_node:openNodeCB; changed:changeTree"></js-tree>
+                </div>-->
+                 
+               <div class="panel-body">
+                 <a href="javascript:void(0)" ng-click="openNode();">Expand</a> &nbsp;|&nbsp; <a href="javascript:void(0)" ng-click="closeNode();">Collapse</a>
+                    <div id="using_json" class="demo jstree jstree-1 jstree-default"></div>
+                </div>
+                <div class="panel-body">
+                    <div id="event_result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Form Input Elements </h3>
+                </div>
+                <div class="panel-body">
+                     <form novalidate name="inputForm12" class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type - text 
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12"><!--ng-blur="showAlert()"-->
+                                            <cp-input name="username"  ng-model="user.name" label="{{'formlabels.username' | translate}}" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" error-position="right"  placeholder="Username" error-position="right"> </cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Disabled
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="username2"  ng-model="user.name1" label="{{'formlabels.username' | translate}}"  ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" error-position="right" ng-blur="showAlert()" placeholder="input field" cp-disabled="true"> </cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div><!-- Input type text element section-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type number 
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input type="number" name="regnumber" label="{{'formlabels.regnumber' | translate}}" ng-model="user.regnumber"  min="5" max="1000"> </cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+
+                        <div class="row"> <!-- input type email -->
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type email 
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        
+                                                <cp-input name="email" type="email" label="{{'formlabels.email' | translate}}" ng-model="user.email" validate="true"> </cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type IP
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input type="ip" name="ipaddress1" validate="true" ng-model="user.ip1"  label="{{'formlabels.ip' | translate}}" required="true"></cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                             
+                            </div>
+                        </div>
+                        <div class="row"><!-- input type Url  -->
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type URL
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                               <cp-input name="userurl1"  validate="true" type="url" ng-model="user.url1" label="{{'formlabels.url' | translate}}" required="true"></cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                              
+                            </div>
+                        </div>
+                        <div class="row"> <!-- Input type password -->
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Input type password
+                                    </legend>
+                                    <p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="userPassword" required="true" id="userPassword" type="password" valid="ULNS" label="Password" ng-model="user.password"  minlength="5" maxlength="12"></cp-input>
+                                            <cp-input name="userConfirmPassword" required="true" type="password" label="Confirm Password" cp-confirm-password="userPassword"  minlength="5" ng-model="user.confirmpassword"></cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                               
+                            </div>
+
+                        </div>
+                        <div class="row"><!-- Radio button Group -->
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Radio Button
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           <cp-radio-group name="gender" radio-items="genderlist" radio-model="user.gender" label="Gender" cp-class="radio-inline"  ></cp-radio-group>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                               
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"><!-- Select box Element -->
+                                <fieldset>
+                                    <legend>
+                                        Select Element
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-select select-options="select_dropdown_Data" label="{{'formlabels.country' | translate}}" cp-class="select-width"  ng-model="user.country1" label-key="label" value-key="value" default-label="- Select - "  error-position="right"></cp-select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Disabled
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-select select-options="select_dropdown_Data" label="{{'formlabels.country' | translate}}" cp-disabled="true" cp-class="select-width"  
+                                                ng-model="user.country" label-key="label" value-key="value" default-label="- Select - " required="true"></cp-select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row"> <!-- Multiple select element -->
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Multiple Select Element
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-multi-select select-options="select_dropdown_Data" label="{{'formlabels.country' | translate}}" cp-class="select-width"  ng-model="user.countries5" label-key="label" value-key="value" default-label="Multiple Select" required="true" error-position="right" ></cp-multi-select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Disabled
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-multi-select select-options="select_dropdown_Data" label="{{'formlabels.country' | translate}}" cp-class="select-width" cp-disabled="true" ng-model="user.countries1" label-key="label" value-key="value" default-label="Multiple Select" required="true" error-position="right" ></cp-multi-select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Checkbox 
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-checkbox select-options="chekcboxData" label="{{'formlabels.country' | translate}}" ng-model="user.check" label-key="label" value-key="value" required="true" cp-class="checkbox-inline checkbox-primary"></cp-checkbox>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Disabled
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                            
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        Textarea
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-textarea class="form-control" name="description" ng-model="mytextarea" show-characters-remaining="true" ng-maxlength='30' required label="Address:" error-position="right" cp-width="300"></cp-textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend>
+                                        
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                          
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <div class="row"><!-- Tooltip-->
+            <div class="col-md-12">
+            <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h3 class="panel-title"> Tooltip </h3>
+                </div>
+                <div class="panel-body">
+                    <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;"  tooltip="{{user.gender}}" position="top" tooltip-class="change-bg"> Server1111 </span>
+                    <span style="display:inline-block; padding:10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="right"> PDU </span>
+                    <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="bottom"> Chassis </span>
+                    <span style="display:inline-block; padding: 10px 20px 10px 0px; margin-right:20px;" tooltip="<strong>Lorem Ipsum is simply dummy </strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," position="left"> Rack </span>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;"><!-- cp link-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h3 class="panel-title"> Anchor(link) Element </h3>
+                </div>
+                <div class="panel-body">
+                    <cp-link-button class="btn-primary" href="abcded" title="link 1" style="margin-right:20px;"> Link 1 </cp-link-button>
+                    <cp-link-button class="btn-primary" href="abcded" title="link 2" style="margin-right:20px;"> Link 2 </cp-link-button>
+                    <cp-link-button class="btn-primary" href="abcded" title="link 3" style="margin-right:20px;"> Link 3 </cp-link-button>
+                    <cp-link-button class="btn-primary" href="abcded" title="link 4" style="margin-right:20px;"> Link 4 </cp-link-button>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h3 class="panel-title"> Datepicker (Calender) </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-3">
+                            From Date <cp-calender ng-model="date.mydate" set-date="true" date-format="yyyy-MM-dd"></cp-calender>
+                    </div>
+                    <div class="col-xs-3">
+                            To Date <cp-calender ng-model="date.myDate2" min-date="date.mydate"></cp-calender>
+                    </div>
+                    <div class="col-xs-2">
+                        Hours
+                        <cp-hours ng-model="hour"></cp-hours>
+                        </div>
+                        <div class="col-xs-2"> Minutes
+                        <cp-minutes ng-model="minute"></cp-minutes>
+                    </div>
+                    <div class="col-xs-3">
+                           
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:15px;"><!-- cpImage directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Button Element </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        <cp-button class="btn btn-primary" >Button Primary</cp-button>
+                        <cp-button class="btn btn-info" >Button Info</cp-button>
+                        <cp-button class="btn btn-success" >Button Success</cp-button>
+                        <cp-button class="btn btn-warning" >Button Warning</cp-button>
+                        <cp-button class="btn btn-default" >Button Default</cp-button>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;"><!-- alert directive-->
+        <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <h3 class="panel-title">Modals, Alert Box, Message (Error/Info/Success/Warning) component </h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills">
+                        <li><a href="javascript:void(0)" ng-click="openProgress()"> Show Progress </a></li>
+                        <li><a href="javascript:void(0)" ng-click="openAlert()"> Show Alert </a></li>
+                        <li><a href="javascript:void(0)" ng-click="openConfirm()"> Show Confirm </a></li>
+                        <li><a href="javascript:void(0)" ng-click="openModal()"> Open Modal </a></li>
+                        <li><a href="javascript:void(0)" ng-click="openWizard()"> Open Wizard </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showPrompt()"> Show Prompt </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showError('info')"> Show Info </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showError('success')"> Show Success </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showError('warning')"> Show Warning </a></li>
+                        <li><a href="javascript:void(0)" ng-click="showError('error')"> Show Error </a></li>
+                    </ul>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:15px;"><!-- cpImage directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Tabs - With Page Refresh </h3>
+                </div>
+                <div class="panel-body">
+                     <cp-page-tabs tab-model="settingOptions"></cp-page-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:15px;"><!-- cpImage directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Tabs - Without Page Refresh </h3>
+                </div>
+                <div class="panel-body">
+                     <cp-tabs get-tab="getSelectedTab(tab)">
+                         <cp-tab title="Tab1" id="tab1">
+                             <h1> Tab 1  </h1>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisl risus, pharetra in dictum ut, tincidunt vulputate enim. Sed nec volutpat lacus. Etiam sollicitudin mauris varius tortor lacinia ultrices. Ut tempus enim non purus rhoncus tincidunt. Suspendisse commodo sollicitudin orci at cursus. Nam elementum venenatis sagittis. Curabitur id felis non magna molestie egestas. Sed porttitor leo non erat luctus aliquet sed id erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+</p>
+                             <p>
+Nunc iaculis blandit felis ac aliquet. Curabitur malesuada sed nunc et pharetra. Ut lorem leo, pellentesque at laoreet a, dictum a erat. Praesent tristique commodo scelerisque. Integer pretium commodo eros a congue. Aenean eu neque id erat convallis facilisis ut non velit. Donec tincidunt pulvinar sollicitudin. Ut tristique tristique metus eu egestas. Pellentesque eget tristique lectus. Suspendisse purus ipsum, auctor a interdum vitae, blandit non ante. Etiam varius, leo sit amet scelerisque molestie, lorem velit dapibus quam, vitae sagittis turpis enim ut augue. Nullam quis sem nec nulla egestas sagittis sit amet ac nisl. Curabitur feugiat vehicula efficitur. Vivamus porttitor sed lorem finibus fringilla. Nunc id pellentesque risus. Aliquam lobortis sem lacus, nec consequat purus egestas in.</p>
+
+                            
+                         </cp-tab>
+                         <cp-tab title="Tab2" id="tab2">
+                             <h1> Tab 2  </h1>
+                              <p>Nullam tincidunt purus in massa consectetur pellentesque. Vestibulum sed efficitur diam, vitae porttitor arcu. Donec vel mollis nunc. Integer et eros pharetra, porta eros id, venenatis sem. Sed tincidunt ligula eu accumsan porta. Phasellus non diam convallis, placerat metus ac, luctus enim. Sed mattis libero sit amet elit viverra, quis ullamcorper nulla varius. Nullam nisl neque, finibus quis iaculis et, luctus ut libero. Duis nec ex ac mi hendrerit luctus ac non nibh. Etiam id ipsum vel neque bibendum posuere. Aenean maximus mi eget sapien faucibus vehicula
+</p>
+                             <p>
+Nunc iaculis blandit felis ac aliquet. Curabitur malesuada sed nunc et pharetra. Ut lorem leo, pellentesque at laoreet a, dictum a erat. Praesent tristique commodo scelerisque. Integer pretium commodo eros a congue. Aenean eu neque id erat convallis facilisis ut non velit. Donec tincidunt pulvinar sollicitudin. Ut tristique tristique metus eu egestas. Pellentesque eget tristique lectus. Suspendisse purus ipsum, auctor a interdum vitae, blandit non ante. Etiam varius, leo sit amet scelerisque molestie, lorem velit dapibus quam, vitae sagittis turpis enim ut augue. Nullam quis sem nec nulla egestas sagittis sit amet ac nisl. Curabitur feugiat vehicula efficitur. Vivamus porttitor sed lorem finibus fringilla. Nunc id pellentesque risus. Aliquam lobortis sem lacus, nec consequat purus egestas in.</p>
+                         </cp-tab>
+                         <cp-tab title="Tab3" id="tab3">
+                             <h1> Tab 3  </h1>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisl risus, pharetra in dictum ut, tincidunt vulputate enim. Sed nec volutpat lacus. Etiam sollicitudin mauris varius tortor lacinia ultrices. Ut tempus enim non purus rhoncus tincidunt. Suspendisse commodo sollicitudin orci at cursus. Nam elementum venenatis sagittis. Curabitur id felis non magna molestie egestas. Sed porttitor leo non erat luctus aliquet sed id erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+</p>
+                             <p>
+Nunc iaculis blandit felis ac aliquet. Curabitur malesuada sed nunc et pharetra. Ut lorem leo, pellentesque at laoreet a, dictum a erat. Praesent tristique commodo scelerisque. Integer pretium commodo eros a congue. Aenean eu neque id erat convallis facilisis ut non velit. Donec tincidunt pulvinar sollicitudin. Ut tristique tristique metus eu egestas. Pellentesque eget tristique lectus. Suspendisse purus ipsum, auctor a interdum vitae, blandit non ante. Etiam varius, leo sit amet scelerisque molestie, lorem velit dapibus quam, vitae sagittis turpis enim ut augue. Nullam quis sem nec nulla egestas sagittis sit amet ac nisl. Curabitur feugiat vehicula efficitur. Vivamus porttitor sed lorem finibus fringilla. Nunc id pellentesque risus. Aliquam lobortis sem lacus, nec consequat purus egestas in.</p>
+                         </cp-tab>
+                         <cp-tab title="Tab4" id="tab4">
+                             <h1> Tab 4  </h1>
+                              <p>Nullam tincidunt purus in massa consectetur pellentesque. Vestibulum sed efficitur diam, vitae porttitor arcu. Donec vel mollis nunc. Integer et eros pharetra, porta eros id, venenatis sem. Sed tincidunt ligula eu accumsan porta. Phasellus non diam convallis, placerat metus ac, luctus enim. Sed mattis libero sit amet elit viverra, quis ullamcorper nulla varius. Nullam nisl neque, finibus quis iaculis et, luctus ut libero. Duis nec ex ac mi hendrerit luctus ac non nibh. Etiam id ipsum vel neque bibendum posuere. Aenean maximus mi eget sapien faucibus vehicula
+</p>
+                             <p>
+Nunc iaculis blandit felis ac aliquet. Curabitur malesuada sed nunc et pharetra. Ut lorem leo, pellentesque at laoreet a, dictum a erat. Praesent tristique commodo scelerisque. Integer pretium commodo eros a congue. Aenean eu neque id erat convallis facilisis ut non velit. Donec tincidunt pulvinar sollicitudin. Ut tristique tristique metus eu egestas. Pellentesque eget tristique lectus. Suspendisse purus ipsum, auctor a interdum vitae, blandit non ante. Etiam varius, leo sit amet scelerisque molestie, lorem velit dapibus quam, vitae sagittis turpis enim ut augue. Nullam quis sem nec nulla egestas sagittis sit amet ac nisl. Curabitur feugiat vehicula efficitur. Vivamus porttitor sed lorem finibus fringilla. Nunc id pellentesque risus. Aliquam lobortis sem lacus, nec consequat purus egestas in.</p>
+                         </cp-tab>
+                     </cp-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:15px;"><!-- popover directive-->
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Context Sensitive Help & Placeholder - Component  </h3>
+                </div>
+                <div class="panel-body">
+                     <div class="col-md-12">
+                    <form name="testform" novalidate class="form-horizontal">
+                        <cp-input name="userPassword" id="Cp-input1" Placeholder="Password" type="password" valid="ULNS" label="Password" ng-model="user.password"  minlength="5" maxlength="12" label-column="3"></cp-input>
+                        <cp-input  name="mytest" help-content=" Password should contain minimum 8 chars "  label="Confirm Password"  required="true" ng-model="test" error-position="right" label-column="3" Placeholder="Confirm Password" cp-width="400"></cp-input>
+                    </form>
+                    <h2> Context Sensitive Help -  With other elements</h2>
+                    
+                    <span help-content=" Context Sensitive Help "> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's standard dummy text</span> <span help-content=" Context Sensitive Help "> ever since the 1500s, 
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                         It has survived not only five centuries, but also  </span> <br /> <br />
+                     <button help-content=" Context Sensitive Help " class="btn btn-primary"> Submit </button>
+
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">&nbsp;</div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Input Directive - Inbuilt Error Message  (Specific Event/Positions) </h3>
+                </div>
+                <div class="panel-body">
+                     <form novalidate name="inputForm" class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="username"  ng-model="user.name" label="Validation - Onblur" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" placeholder="Username" error-position="right" ng-model-options="{updateOn: 'blur'}" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="name"  ng-model="user.username" label="Validation - OnKeyup" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json"  placeholder="Username" error-position="bottom" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="city"  ng-model="user.city" label="Validation Message- Right" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json" placeholder="Username" error-position="right" ng-model-options="{updateOn: 'blur'}" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="state"  ng-model="user.state" label="Validation Message- Bottom" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  minlength="5" maxlength="12" cp-value-duplication="resources/users-data.json"  placeholder="Username" error-position="bottom" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div><!-- Input type text element section-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Form with disabled submit button </h3>
+                </div>
+                <div class="panel-body">
+                     <form novalidate name="enableSubmit" class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="username"  ng-model="user.firstname" label="User first Name" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/" placeholder="Username" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="name"  ng-model="user.firstname2" label="User Second Name" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  placeholder="Username" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <cp-input name="city"  ng-model="user.firstname3" label="User Last Name" required="true" ng-pattern="/^[a-zA-Z0-9.@_]*$/"  placeholder="Last Name" cp-width="400" label-column="3"> </cp-input>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-sm-offset-3 col-sm-3">
+                                                <button ng-disabled="enableSubmit.$invalid || enableSubmit.$pristine" class="btn btn-primary"> Submit </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div><!-- Input type text element section-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row"  style="margin-top:15px;"><!-- popover directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Custom form validation  </h3>
+                </div>
+                <div class="panel-body">
+                     <div class="col-md-5">
+                        <cp-error-message error-id="test1"></cp-error-message>
+                        <form name="customValidation" ng-submit="submit()" novalidate class="form-horizontal">
+                            <cp-input  name="username" label="User Name - Lorem Ipsum is simply dummy" help-content=" ADS "  ng-model="username" error-position="right" Placeholder="Enter name " label-column="5"></cp-input>
+                            <cp-input type="password" label="Password"  name="userpassword" help-content=" ADS "  ng-model="userpassword" error-position="right" Placeholder="Enter password " label-column="5"></cp-input>
+                            <cp-input type="number" label="User Age" name="userage" ng-model="userage" error-position="right" Placeholder="Enter age" label-column="5"></cp-input>
+                            <cp-input type="email" cp-width="200" label="User Email"  name="useremail" ng-model="useremail" error-position="right" Placeholder="Enter email" required label-column="5" help-content="Please enter valid email address"></cp-input>
+                            <cp-input type="ip" label="User IP" name="userip" ng-model="userip" error-position="right" Placeholder="Enter IP" label-column="5"></cp-input>
+                            <cp-input type="url" label="User URL" name="userurl" ng-model="userurl" error-position="right" Placeholder="Enter url" label-column="5"></cp-input>
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"  style="margin-top:15px;"><!-- popover directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Form Label - Positions </h3>
+                </div>
+                <div class="panel-body">
+                     <div class="col-md-6"> 
+                        <form name="customValidation" novalidate class="">
+                            <cp-input  name="username" label="User Name Lorem Ipsum is simply dummy" help-content=" ADS "  ng-model="username" error-position="right" Placeholder="Enter name " label-column="5"></cp-input>
+                            <cp-input type="password" label="Password"  name="userpassword" help-content=" ADS "  ng-model="userpassword" error-position="right" Placeholder="Enter password " label-column="5"></cp-input>
+                            <cp-input type="number" label="User Age" name="userage" ng-model="userage" error-position="right" Placeholder="Enter age" label-column="5"></cp-input>
+                            <cp-input type="email" cp-width="200" label="User Email"  name="useremail" ng-model="useremail" error-position="right" Placeholder="Enter email" required label-column="5"></cp-input>
+                            <cp-input type="ip" label="User IP" name="userip" ng-model="userip" error-position="right" Placeholder="Enter IP" label-column="5"></cp-input>
+                            <cp-input type="url" label="User URL" name="userurl" ng-model="userurl" error-position="right" Placeholder="Enter url" label-column="5"></cp-input>
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                        </form>
+                    </div>
+                     <div class="col-md-6"> 
+                        <cp-error-message error-id="test2"></cp-error-message>
+                        <form name="customValidation" ng-submit="submitForm()" novalidate class="form-horizontal label-right">
+                            <cp-input  name="username" label="User Name Lorem Ipsum is simply dummy" help-content=" ADS "  ng-model="username" error-position="right" Placeholder="Enter name " label-column="5"></cp-input>
+                            <cp-input type="password" label="Password"  name="userpassword" help-content=" ADS "  ng-model="userpassword" error-position="right" Placeholder="Enter password " label-column="5"></cp-input>
+                            <cp-input type="number" label="User Age" name="userage" ng-model="userage" error-position="right" Placeholder="Enter age" label-column="5"></cp-input>
+                            <cp-input type="email" cp-width="200" label="User Email"  name="useremail" ng-model="useremail" error-position="right" Placeholder="Enter email" required label-column="5"></cp-input>
+                            <cp-input type="ip" label="User IP" name="userip" ng-model="userip" error-position="right" Placeholder="Enter IP" label-column="5"></cp-input>
+                            <cp-input type="url" label="User URL" name="userurl" ng-model="userurl" error-position="right" Placeholder="Enter url" label-column="5"></cp-input>
+                            <div class="col-sm-offset-5 col-sm-4">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                                         
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row"  style="margin-top:15px;"><!-- popover directive-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Form Label - Width Control</h3>
+                </div>
+                <div class="panel-body">
+                     <div class="col-md-6"> 
+                        <form name="customValidation" novalidate class="form-horizontal label-left">
+                            <cp-input  name="username" label="User Name - Lorem Ipsum is simply dummy" help-content=" ADS "  ng-model="username"  Placeholder="Enter name " label-column="2"></cp-input>
+                            <cp-input type="password" label="Password"  name="userpassword" help-content=" ADS "  ng-model="userpassword" Placeholder="Enter password " label-column="2"></cp-input>
+                            <cp-input type="number" label="User Age" name="userage" ng-model="userage" Placeholder="Enter age"  cp-width="150" label-column="2"></cp-input>
+                           
+                             <div class="col-sm-offset-2 col-sm-3">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                     <div class="col-md-6"> 
+                        <form name="customValidation" novalidate class="form-horizontal label-left">
+                            <cp-input  name="username" label="User Name - Lorem Ipsum is simply dummy" ng-model="username"  Placeholder="Enter name " label-column="5"></cp-input>
+                            <cp-input type="password" label="Password"  name="userpassword" ng-model="userpassword" Placeholder="Enter password " label-column="5"></cp-input>
+                            <cp-input type="number" label="User Age" name="userage" ng-model="userage" Placeholder="Enter age" label-column="5" cp-width="150"></cp-input>
+                           
+                            <div class="col-md-offset-5 col-sm-5">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+
+                        </form>
+                    </div>
+                                         
+                </div>
+            </div>
+        </div>
+    </div>
+
+       <cp-slider-box cp-width="500" >
+            <div style="padding:20px 30px;"> 
+                <div>User name:  <strong>{{globalGridData.selectedUser.name}}</strong></div>
+                <div><span> About user:</span> <p>{{globalGridData.selectedUser.about}}</p> </div>
+                <div><span> Company : </span> <p><strong>{{globalGridData.selectedUser.company}}</strong></p> </div>
+                <div><span> Email : </span> <p><strong>{{globalGridData.selectedUser.email}}</strong></p> </div>
+                <div><span> Registered : </span> <p><strong>{{globalGridData.selectedUser.registered}}</strong></p> </div>
+            </div>
+       </cp-slider-box>
+
+    <div style="margin-bottom:30px;"></div>
+</div>
