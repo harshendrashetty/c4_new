@@ -15,8 +15,7 @@ define(function () {
             female: "Female",
             other: "Other"
         }
-		
-        $scope.selectData = [{ label: 'Bruno', value: 'Bruno' },
+		$scope.selectData = [{ label: 'Bruno', value: 'Bruno' },
          { label: 'Carolina', value: 'Carolina' },
          { label: 'Danilo', value: 'Danilo' },
          { label: 'Eduarda', value: 'Eduarda' },
